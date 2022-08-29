@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/08/29/hello-world/</loc>
+    <loc>https://xxyqwq.github.io/2022/08/29/acmoj1485/</loc>
+    
+    <lastmod>2022-08-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xxyqwq.github.io/about/index.html</loc>
+    
+    <lastmod>2022-08-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xxyqwq.github.io/2022/08/29/hello-world/</loc>
     
     <lastmod>2022-08-29</lastmod>
     
@@ -12,12 +30,19 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://xxyqwq.github.io/</loc>
     <lastmod>2022-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://xxyqwq.github.io/tags/%E9%A2%98%E8%A7%A3/</loc>
+    <lastmod>2022-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
