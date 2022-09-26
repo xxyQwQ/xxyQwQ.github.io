@@ -156,6 +156,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xxyqwq.github.io/2022/09/26/acmoj-1033/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="xxyQwQ">
+      <meta itemprop="description" content="xxyQwQ的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxyQwQ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/26/acmoj-1033/" class="post-title-link" itemprop="url">【题解】ACMOJ 1033 求行列式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-26 12:58:19 / 修改时间：13:52:00" itemprop="dateCreated datePublished" datetime="2022-09-26T12:58:19+08:00">2022-09-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=1033">ACMOJ - 1033 - 行列式求值</a></p>
+<p>求 $n$ 阶行列式 $\begin{vmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}\end{vmatrix}$ 的值，保证 $n\leq 10$ 且答案在<code>int</code>范围内</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>行列式的求解有多种方法，具体参见《线性代数》教材</p>
+<p>此处介绍以下三种方法：</p>
+<ul>
+<li><strong>全排列法</strong>：利用行列式的全排列定义直接计算</li>
+<li><strong>余子式法</strong>：利用行列式的按行展开性质递归计算</li>
+<li><strong>高斯消元</strong>：利用初等变换将行列式化为上三角阵简化计算</li>
+</ul>
+<h3 id="全排列法"><a href="#全排列法" class="headerlink" title="全排列法"></a>全排列法</h3><p>设 $A=(a_{ij})_{n\times n}\in \mathbb{K}^{n\times n}$，则 $|A|=\sum \limits _{j_1j_2\dots j_n}(-1)^{\tau(j_1j_2\dots j_n)}a_{1j_1}a_{2j_2}\dots a_{nj_n}$</p>
+<p>利用<code>std::next_permutation</code>函数构造 $1,2,\dots ,n$ 的全排列，借助函数统计逆序对数，完成计算</p>
+<p>时间复杂度为 $O(n^2\cdot n!)$，利用分治求逆序对可以优化到 $O(n\log n\cdot n!)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">15</span>][<span class="number">15</span>], p[<span class="number">15</span>], n, answer;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">invertion</span><span class="params">(<span class="type">int</span> v[], <span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= k; j++)</span><br><span class="line">            <span class="keyword">if</span> (v[i] &gt; v[j])</span><br><span class="line">                r++;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i][j]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        p[i] = i;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> term = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            term *= a[i][p[i]];</span><br><span class="line">        term *= (<span class="built_in">invertion</span>(p, n) &amp; <span class="number">1</span>) ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">        answer += term;</span><br><span class="line">    &#125; <span class="keyword">while</span> (std::<span class="built_in">next_permutation</span>(p + <span class="number">1</span>, p + n + <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, answer);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="余子式法"><a href="#余子式法" class="headerlink" title="余子式法"></a>余子式法</h3><p>设 $D=|a_{ij}|_{n\times n}$，则 $D=\sum \limits _{j=1}^na_{1j}A_{1j}$，其中 $A_{1j}$ 为 $D$ 的代数余子式</p>
+<p>为实现递归计算，我们动态开辟数组，并且将二维数组压缩至一维，即构造映射 $a_{ij}\rightarrow a_{in+j}$，以此解决函数传参问题</p>
+<p>时间复杂度为 $O(n^2\cdot n!)$，实际运行快于全排列法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">105</span>], n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">det</span><span class="params">(<span class="type">int</span> *v, <span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> *v;</span><br><span class="line">    <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">0</span>; p &lt; k; p++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> *s = <span class="keyword">new</span> <span class="type">int</span>[(k - <span class="number">1</span>) * (k - <span class="number">1</span>)];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k - <span class="number">1</span>; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; k - <span class="number">1</span>; j++)</span><br><span class="line">                *(s + i * (k - <span class="number">1</span>) + j) = *(v + (i + <span class="number">1</span>) * k + (j &lt; p ? j : (j + <span class="number">1</span>)));</span><br><span class="line">        r += ((p &amp; <span class="number">1</span>) ? <span class="number">-1</span> : <span class="number">1</span>) * *(v + p) * <span class="built_in">det</span>(s, k - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">delete</span>[] s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, a + i * n + j);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">det</span>(a, n));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h3><ul>
+<li>依次遍历第 $i=1,2,\dots ,n$ 行，将 $a_{ii}$ 作为主元</li>
+<li>依次遍历第 $j=i+1,i+2,\dots ,n$ 行，通过初等变换将 $a_{ji}$ 消为 $0$</li>
+<li>特别地，若 $a_{ii}=0$，则遍历 $j=i+1,i+2,\dots ,n$ 寻找 $a_{ji}\neq 0$，并将第 $i$ 行与第 $j$ 行交换<br>（<strong>每次交换两行会使结果的正负性反转</strong>）</li>
+<li>若 $a_{ji}$ 全为 $0$，行列式的值即为 $0$</li>
+<li>消元完成得到上三角阵 $D’$，其对角线元素乘积即为行列式的结果</li>
+</ul>
+<p>时间复杂度为 $O(n^3)$，远优于前两种方法，但存在浮点数精度的局限性，代码实现中需要思考如下问题：</p>
+<ul>
+<li>如何判定两个浮点数相等？</li>
+<li>输出结果是否可以强制转换为整数？</li>
+<li>如果不行，应该怎么做？</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> a[<span class="number">15</span>][<span class="number">15</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">equal</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fabs</span>(x - y) &lt; eps;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(T &amp;x, T &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T temp = x;</span><br><span class="line">    x = y, y = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">determination</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">equal</span>(a[i][i], <span class="number">0</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> j;</span><br><span class="line">            <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">equal</span>(a[j][i], <span class="number">0</span>))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (j == n + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            r *= <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">                <span class="built_in">swap</span>(a[i][k], a[j][k]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">double</span> p = -(a[j][i] / a[i][i]);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt;= n; k++)</span><br><span class="line">                a[j][k] += p * a[i][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        r *= a[i][i];</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">regularize</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> y = <span class="built_in">fabs</span>(x);</span><br><span class="line">    <span class="keyword">return</span> (x &gt;= <span class="number">0</span> ? <span class="number">1</span> : <span class="number">-1</span>) * <span class="built_in">int</span>(y + <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;a[i][j]);</span><br><span class="line">    <span class="type">double</span> result = <span class="built_in">determination</span>();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">regularize</span>(result));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xxyqwq.github.io/2022/09/25/acmoj-1014/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -612,7 +709,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
