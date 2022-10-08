@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"xxyqwq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="xxyQwQ的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xxyQwQ">
-<meta property="og:url" content="https://xxyqwq.github.io/tags/%E7%AE%97%E6%B3%95/index.html">
+  <meta name="description" content="题目描述ACMOJ - 11038 - 约瑟夫环 有 $n$ 个人编号 $1,2,\dots ,n$ 轮流报数（首轮从 $1$ 号开始报数），给定一组 $k_1,k_2,\dots ,k_{n-1}$，第 $i$ 轮报数 $k_i$ 的人出圈，并从下家开始重新报数，问最后留下的人的编号，保证 $n\leq 10^4,k_i\leq 10^8$ 问题分析注意到 $k_i$ 的规模并不重要，对剩余人数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【题解】ACMOJ 11038 约瑟夫环">
+<meta property="og:url" content="https://xxyqwq.github.io/2022/10/08/acmoj-11038/index.html">
 <meta property="og:site_name" content="xxyQwQ">
-<meta property="og:description" content="xxyQwQ的个人博客">
+<meta property="og:description" content="题目描述ACMOJ - 11038 - 约瑟夫环 有 $n$ 个人编号 $1,2,\dots ,n$ 轮流报数（首轮从 $1$ 号开始报数），给定一组 $k_1,k_2,\dots ,k_{n-1}$，第 $i$ 轮报数 $k_i$ 的人出圈，并从下家开始重新报数，问最后留下的人的编号，保证 $n\leq 10^4,k_i\leq 10^8$ 问题分析注意到 $k_i$ 的规模并不重要，对剩余人数">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-08T14:02:23.000Z">
+<meta property="article:modified_time" content="2022-10-08T14:52:43.344Z">
 <meta property="article:author" content="xxyQwQ">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xxyqwq.github.io/tags/%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="https://xxyqwq.github.io/2022/10/08/acmoj-11038/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 算法 | xxyQwQ</title>
+  <title>【题解】ACMOJ 11038 约瑟夫环 | xxyQwQ</title>
   
 
 
@@ -150,171 +153,98 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">算法
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xxyqwq.github.io/2022/10/08/acmoj-11038/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="xxyQwQ">
+      <meta itemprop="description" content="xxyQwQ的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xxyQwQ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【题解】ACMOJ 11038 约瑟夫环
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-08 22:02:23 / 修改时间：22:52:43" itemprop="dateCreated datePublished" datetime="2022-10-08T22:02:23+08:00">2022-10-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=11038">ACMOJ - 11038 - 约瑟夫环</a></p>
+<p>有 $n$ 个人编号 $1,2,\dots ,n$ 轮流报数（首轮从 $1$ 号开始报数），给定一组 $k_1,k_2,\dots ,k_{n-1}$，第 $i$ 轮报数 $k_i$ 的人出圈，并从下家开始重新报数，问最后留下的人的编号，保证 $n\leq 10^4,k_i\leq 10^8$</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>注意到 $k_i$ 的规模并不重要，对剩余人数取模即有 $k_i\leq n$，利用循环链表可以实现 $O(n^2)$ 的模拟</p>
+<p>下面介绍一种递推做法：</p>
+<p>逆向考虑过程，尝试通过第 $i$ 轮的起始位置反推第 $i-1$ 轮的起始位置，在保证相对顺序不变的前提下，我们认为第 $i$ 轮开始时圈内 $n-i+1$ 人的相对位置即为 $0,1,2,\dots ,n-i$</p>
+<p>记第 $i$ 轮的起始位置为 $a_i$，其中 $a_n=0$，反推即有关系 $a_i=(a_{i+1}+k_i)\mod (n-i+1)$，所求 $a_1$ 即为最后留下的人与 $1$ 号的相对位置，此时 $a_1+1$ 即为答案</p>
+<p>该算法的时间复杂度为 $O(n)$，即使 $n\leq 10^8$ 仍可以高效解决问题</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> NMAX = <span class="number">10005</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> k[NMAX], n, answer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        (answer += k[n - i + <span class="number">1</span>]) %= i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ++answer);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-08T23:04:28+08:00"
-              content="2022-10-08">
-          10-08
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/10/08/acmoj-1058/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 1058 单循环链表</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-08T22:53:28+08:00"
-              content="2022-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/10/08/acmoj-11617/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 11617 字符串相加</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-08T22:02:23+08:00"
-              content="2022-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/10/08/acmoj-11038/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 11038 约瑟夫环</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-09-26T12:58:19+08:00"
-              content="2022-09-26">
-          09-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/26/acmoj-1033/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 1033 求行列式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-09-25T22:17:47+08:00"
-              content="2022-09-25">
-          09-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/25/acmoj-1014/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 1014 差分序列</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-08-30T15:33:13+08:00"
-              content="2022-08-30">
-          08-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/08/30/acmoj-1572/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 1572 二分图</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-08-29T15:41:55+08:00"
-              content="2022-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/08/29/acmoj-1485/" itemprop="url">
-            <span itemprop="name">【题解】ACMOJ 1485 单调栈</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/26/acmoj-1033/" rel="prev" title="【题解】ACMOJ 1033 求行列式">
+      <i class="fa fa-chevron-left"></i> 【题解】ACMOJ 1033 求行列式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/08/acmoj-11617/" rel="next" title="【题解】ACMOJ 11617 字符串相加">
+      【题解】ACMOJ 11617 字符串相加 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
@@ -367,6 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -493,6 +424,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
