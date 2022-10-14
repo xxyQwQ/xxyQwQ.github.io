@@ -2,16 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xxyqwq.github.io/2022/10/08/acmoj-1058/</loc>
+    <loc>https://xxyqwq.github.io/categories/index.html</loc>
     
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xxyqwq.github.io/categories/index.html</loc>
+    <loc>https://xxyqwq.github.io/2022/10/14/acmoj-14151/</loc>
+    
+    <lastmod>2022-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xxyqwq.github.io/2022/10/14/acmoj-14373/</loc>
+    
+    <lastmod>2022-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xxyqwq.github.io/2022/10/14/acmoj-1080/</loc>
+    
+    <lastmod>2022-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xxyqwq.github.io/2022/10/08/acmoj-1058/</loc>
     
     <lastmod>2022-10-08</lastmod>
     
@@ -94,7 +121,7 @@
 
   <url>
     <loc>https://xxyqwq.github.io/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,14 +129,14 @@
   
   <url>
     <loc>https://xxyqwq.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xxyqwq.github.io/tags/%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -118,14 +145,14 @@
   
   <url>
     <loc>https://xxyqwq.github.io/categories/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xxyqwq.github.io/categories/%E6%96%87%E7%AB%A0/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

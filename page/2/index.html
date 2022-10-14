@@ -20,33 +20,30 @@
     var CONFIG = {"hostname":"xxyqwq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="题目描述ACMOJ - 1485 - 纯真丁一郎 给出一列 $n$ 个互不相同的数字 $a_1,a_2,\dots ,a_n$，定义一对 $i,j$ 满足性质当且仅当 $a_i,a_j$ 大于它们之间的所有数字 $a_{i+1},a_{i+2},\dots ,a_{j-1}$ 子问题1：试求满足性质的数对总数 子问题2：给出 $m$ 次询问，每次限定 $i$ 范围为 $[l,r]$，但 $j$ 不">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【题解】ACMOJ 1485 单调栈">
-<meta property="og:url" content="https://xxyqwq.github.io/2022/08/29/acmoj-1485/index.html">
+  <meta name="description" content="xxyQwQ的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="xxyQwQ">
+<meta property="og:url" content="https://xxyqwq.github.io/page/2/index.html">
 <meta property="og:site_name" content="xxyQwQ">
-<meta property="og:description" content="题目描述ACMOJ - 1485 - 纯真丁一郎 给出一列 $n$ 个互不相同的数字 $a_1,a_2,\dots ,a_n$，定义一对 $i,j$ 满足性质当且仅当 $a_i,a_j$ 大于它们之间的所有数字 $a_{i+1},a_{i+2},\dots ,a_{j-1}$ 子问题1：试求满足性质的数对总数 子问题2：给出 $m$ 次询问，每次限定 $i$ 范围为 $[l,r]$，但 $j$ 不">
+<meta property="og:description" content="xxyQwQ的个人博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-29T07:41:55.000Z">
-<meta property="article:modified_time" content="2022-08-29T15:27:02.783Z">
 <meta property="article:author" content="xxyQwQ">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xxyqwq.github.io/2022/08/29/acmoj-1485/">
+<link rel="canonical" href="https://xxyqwq.github.io/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>【题解】ACMOJ 1485 单调栈 | xxyQwQ</title>
+  <title>xxyQwQ</title>
   
 
 
@@ -153,10 +150,9 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -172,9 +168,10 @@
       <meta itemprop="name" content="xxyQwQ">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          【题解】ACMOJ 1485 单调栈
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/29/acmoj-1485/" class="post-title-link" itemprop="url">【题解】ACMOJ 1485 单调栈</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -207,7 +204,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=1485">ACMOJ - 1485 - 纯真丁一郎</a></p>
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=1485">ACMOJ - 1485 - 纯真丁一郎</a></p>
 <p>给出一列 $n$ 个<strong>互不相同</strong>的数字 $a_1,a_2,\dots ,a_n$，定义一对 $i,j$ 满足性质当且仅当 $a_i,a_j$ 大于它们之间的所有数字 $a_{i+1},a_{i+2},\dots ,a_{j-1}$</p>
 <p><strong>子问题1</strong>：试求满足性质的数对总数</p>
 <p><strong>子问题2</strong>：给出 $m$ 次询问，每次限定 $i$ 范围为 $[l,r]$，但 $j$ 不限，求此时满足性质的数对总数</p>
@@ -244,34 +241,25 @@
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>为什么上述算法流程包含两重循环，但复杂度是 $O(n)$ 呢？</p>
 <p>我们注意到对于每个 $a_i$，<strong>至多</strong>只会发生一次入栈，一次出栈，因此第二重循环的操作次数上限为 $2n$，请读者仔细体会</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SIZE = <span class="number">1000005</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- 以下为链表栈的实现，可以忽略 ----------</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Stack</span>() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">const</span> ElementType &amp;element)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> ElementType <span class="title">pop</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> ElementType <span class="title">top</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">clear</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedStack</span> : <span class="keyword">public</span> Stack&lt;ElementType&gt;</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">StackNode</span></span><br><span class="line">    &#123;</span><br><span class="line">        ElementType data;</span><br><span class="line">        StackNode *next;</span><br><span class="line">        <span class="built_in">StackNode</span>() : <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">StackNode</span>(<span class="type">const</span> ElementType &amp;_data, StackNode *_next = <span class="literal">nullptr</span>) : <span class="built_in">data</span>(_data), <span class="built_in">next</span>(_next) &#123;&#125;</span><br><span class="line">        ~<span class="built_in">StackNode</span>() &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    StackNode *head;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LinkedStack</span>();</span><br><span class="line">    ~<span class="built_in">LinkedStack</span>();</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">const</span> ElementType &amp;element)</span></span>;</span><br><span class="line">    <span class="function">ElementType <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">ElementType <span class="title">top</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line">LinkedStack&lt;ElementType&gt;::<span class="built_in">LinkedStack</span>()</span><br><span class="line">&#123;</span><br><span class="line">    head = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line">LinkedStack&lt;ElementType&gt;::~<span class="built_in">LinkedStack</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">clear</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line"><span class="type">bool</span> LinkedStack&lt;ElementType&gt;::<span class="built_in">empty</span>() <span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> head == <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line"><span class="type">void</span> LinkedStack&lt;ElementType&gt;::<span class="built_in">push</span>(<span class="type">const</span> ElementType &amp;element)</span><br><span class="line">&#123;</span><br><span class="line">    head = <span class="keyword">new</span> <span class="built_in">StackNode</span>(element, head);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line">ElementType LinkedStack&lt;ElementType&gt;::<span class="built_in">pop</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">throw</span> Stack is already empty!;</span><br><span class="line">    StackNode *temp = head;</span><br><span class="line">    ElementType value = temp-&gt;data;</span><br><span class="line">    head = head-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> temp;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line">ElementType LinkedStack&lt;ElementType&gt;::<span class="built_in">top</span>() <span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">throw</span> Stack is already empty!;</span><br><span class="line">    <span class="keyword">return</span> head-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ElementType&gt;</span><br><span class="line"><span class="type">void</span> LinkedStack&lt;ElementType&gt;::<span class="built_in">clear</span>()</span><br><span class="line">&#123;</span><br><span class="line">    StackNode *temp;</span><br><span class="line">    <span class="keyword">while</span> (head != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = head;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ---------- 以上为链表栈的实现，可以忽略 ----------</span></span><br><span class="line"></span><br><span class="line">LinkedStack&lt;<span class="type">int</span>&gt; s;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> r[SIZE]; <span class="comment">// Notice the summary can exceed range of int</span></span><br><span class="line"><span class="type">int</span> v[SIZE], h[SIZE], n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(%d%d, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        v[i] = <span class="number">1</span>; <span class="comment">// Stand at the same position</span></span><br><span class="line">        <span class="built_in">scanf</span>(%d, &amp;h[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    s.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++) <span class="comment">// Count on the left side</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (!s.<span class="built_in">empty</span>() &amp;&amp; h[s.<span class="built_in">top</span>()] &lt; h[i])</span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            v[i]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!s.<span class="built_in">empty</span>())</span><br><span class="line">            v[i]++;</span><br><span class="line">        s.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!s.<span class="built_in">empty</span>()) <span class="comment">// Clear stack for next direction</span></span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">    s.<span class="built_in">push</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i; i--) <span class="comment">// Count on the right side</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (!s.<span class="built_in">empty</span>() &amp;&amp; h[s.<span class="built_in">top</span>()] &lt; h[i])</span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            v[i]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!s.<span class="built_in">empty</span>())</span><br><span class="line">            v[i]++;</span><br><span class="line">        s.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="comment">// Calculate prefix summary to accelerate</span></span><br><span class="line">        r[i] = r[i - <span class="number">1</span>] + v[i];</span><br><span class="line">    <span class="built_in">printf</span>(%lld\n, r[n]); <span class="comment">// r[n] is the total summary</span></span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x, y;</span><br><span class="line">        <span class="built_in">scanf</span>(%d%d, &amp;x, &amp;y);</span><br><span class="line">        <span class="built_in">printf</span>(%lld\n, r[y] - r[x - <span class="number">1</span>]); <span class="comment">// Summary from v[x] to v[y] is r[y] - r[x - 1]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
     </div>
 
     
     
     
-
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/2022/08/29/freshman-life/" rel="next" title="【文章】我的大一生活">
-      【文章】我的大一生活 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -323,7 +311,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A6%81%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82"><span class="nav-number">4.</span> <span class="nav-text">一些细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

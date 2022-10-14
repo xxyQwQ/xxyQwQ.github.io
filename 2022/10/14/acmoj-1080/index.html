@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"xxyqwq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="题目描述ACMOJ - 1014 - 数列操作 给出两个整数序列 $a_1,a_2,\dots ,a_n$ 和 $b_1,b_2,\dots ,b_n$，对 $\{ a_n\}$ 存在如下两种操作：  将某个区间的数全部 $+1$ 将某个区间的数全部 $-1$  试求至少经过多少次操作可以将序列 $\{ a_n\}$ 变为 $\{ b_n\}$ 问题分析事实上，通过等价变换，可以使问题大大简化 首">
+  <meta name="description" content="题目描述ACMOJ - 1080 - 后缀表达式 计算给定后缀表达式的值，其中@为表达式终止符，.为操作数结束标识 问题分析按照后缀表达式的规则计算即可，推荐使用字符串进行处理，注意操作数的完整提取 代码12345678910111213141516171819202122232425262728293031#include &lt;cstdio&gt;#include &lt;cctype&amp;gt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】ACMOJ 1014 差分序列">
-<meta property="og:url" content="https://xxyqwq.github.io/2022/09/25/acmoj-1014/index.html">
+<meta property="og:title" content="【题解】ACMOJ 1080 后缀表达式">
+<meta property="og:url" content="https://xxyqwq.github.io/2022/10/14/acmoj-1080/index.html">
 <meta property="og:site_name" content="xxyQwQ">
-<meta property="og:description" content="题目描述ACMOJ - 1014 - 数列操作 给出两个整数序列 $a_1,a_2,\dots ,a_n$ 和 $b_1,b_2,\dots ,b_n$，对 $\{ a_n\}$ 存在如下两种操作：  将某个区间的数全部 $+1$ 将某个区间的数全部 $-1$  试求至少经过多少次操作可以将序列 $\{ a_n\}$ 变为 $\{ b_n\}$ 问题分析事实上，通过等价变换，可以使问题大大简化 首">
+<meta property="og:description" content="题目描述ACMOJ - 1080 - 后缀表达式 计算给定后缀表达式的值，其中@为表达式终止符，.为操作数结束标识 问题分析按照后缀表达式的规则计算即可，推荐使用字符串进行处理，注意操作数的完整提取 代码12345678910111213141516171819202122232425262728293031#include &lt;cstdio&gt;#include &lt;cctype&amp;gt">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-25T14:17:47.000Z">
-<meta property="article:modified_time" content="2022-09-25T15:02:53.914Z">
+<meta property="article:published_time" content="2022-10-14T09:27:44.000Z">
+<meta property="article:modified_time" content="2022-10-14T09:32:49.026Z">
 <meta property="article:author" content="xxyQwQ">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xxyqwq.github.io/2022/09/25/acmoj-1014/">
+<link rel="canonical" href="https://xxyqwq.github.io/2022/10/14/acmoj-1080/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>【题解】ACMOJ 1014 差分序列 | xxyQwQ</title>
+  <title>【题解】ACMOJ 1080 后缀表达式 | xxyQwQ</title>
   
 
 
@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xxyqwq.github.io/2022/09/25/acmoj-1014/">
+    <link itemprop="mainEntityOfPage" href="https://xxyqwq.github.io/2022/10/14/acmoj-1080/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -173,7 +173,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【题解】ACMOJ 1014 差分序列
+          【题解】ACMOJ 1080 后缀表达式
         </h1>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-25 22:17:47 / 修改时间：23:02:53" itemprop="dateCreated datePublished" datetime="2022-09-25T22:17:47+08:00">2022-09-25</time>
+              <time title="创建时间：2022-10-14 17:27:44 / 修改时间：17:32:49" itemprop="dateCreated datePublished" datetime="2022-10-14T17:27:44+08:00">2022-10-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,33 +207,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=1014">ACMOJ - 1014 - 数列操作</a></p>
-<p>给出两个整数序列 $a_1,a_2,\dots ,a_n$ 和 $b_1,b_2,\dots ,b_n$，对 $\{ a_n\}$ 存在如下两种操作：</p>
-<ul>
-<li>将某个区间的数全部 $+1$</li>
-<li>将某个区间的数全部 $-1$</li>
-</ul>
-<p>试求至少经过多少次操作可以将序列 $\{ a_n\}$ 变为 $\{ b_n\}$</p>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>事实上，通过等价变换，可以使问题大大简化</p>
-<p>首先，我们并不关心 $\{ a_n\}$ 和 $\{ b_n\}$ 具体的数值，影响问题答案的是两者的差异，因此我们对两序列作差，即令 $c_n=a_n-b_n$，此时我们只需要对 $\{ c_n\}$ 进行同样的操作，使得 $\forall i=1,2,\dots ,n$ 都有 $c_i=0$</p>
-<p>现在我们引入<strong>差分序列</strong>的概念</p>
-<blockquote>
-<p>对于序列 $x_1,x_2,\dots ,x_n$，特别规定 $x_0=0$，令 $y_n=x_n-x_{n-1}$ 可以得到新序列 $y_1,y_2,\dots ,y_n$，则 $\{ y_n\}$ 记为 $\{ x_n\}$ 的<strong>差分序列</strong>，相应地，$\{ x_n\}$ 记为 $\{ y_n\}$ 的<strong>前缀和序列</strong></p>
-</blockquote>
-<p>差分与前缀和是一对<strong>互逆</strong>的序列变换，在<strong>静态</strong>的区间求和与区间修改问题中，可以将单次操作的复杂度降低为 $O(1)$</p>
-<p>引入上述概念后，我们重新审视问题</p>
-<p>对序列 $\{ c_n\}$ 作差分，得到差分序列 $\{ d_n\}$，则 $d_i$ 表示原序列中后一项与前一项的差值，我们将原序列中区间 $c_i,c_{i+1},\dots ,c_j$ 全部 $+1$，相当于在差分序列中令 $d_i+1$，并令 $d_{j+1}-1$，该等价性可以通过求前缀和的方式进行验证</p>
-<p>至此，问题已经简化为：</p>
-<blockquote>
-<p>已知序列 $d_1,d_2,\dots ,d_n$，每次选取 $i\leq j$，可以令 $d_i+1,d_{j+1}-1$ 或 $d_i-1,d_{j+1}+1$，求将 $\{ d_n\}$ 全部变为 $0$ 的最小操作次数</p>
-</blockquote>
-<p>不难想到贪心策略，每次选取正负性相反的一对 $d_i,d_{j+1}$，其中正数 $-1$，负数 $+1$，最终无法配对的数字与 $d_{n+1}$ 相消（相当于在原序列中，操作该数之后的整个区间）</p>
-<p>因此，最终答案即为 $\max \left \{ \sum \limits _{d_i&gt;0} |d_i|,\ \sum \limits _{d_i&lt;0} |d_i| \right \}$，其正确性不难验证，算法的时间复杂度为 $O(n)$</p>
-<h3 id="一些细节"><a href="#一些细节" class="headerlink" title="一些细节"></a>一些细节</h3><ol>
-<li>目标要使所有的 $d_i=0$，因此 $d_1$ 也需要被考虑</li>
-<li>求和变量应当使用<code>long long</code>类型，避免溢出</li>
-</ol>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdarg&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> LL = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> NMAX = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line">LL p, q;</span><br><span class="line"><span class="type">int</span> a[NMAX], n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T result = <span class="built_in">T</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">bool</span> sign = <span class="literal">false</span>;</span><br><span class="line">    <span class="type">char</span> word = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(word))</span><br><span class="line">        sign |= (word == <span class="string">&#x27;-&#x27;</span>), word = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(word))</span><br><span class="line">        result = result * <span class="number">10</span> + <span class="built_in">T</span>(word - <span class="string">&#x27;0&#x27;</span>), word = <span class="built_in">getchar</span>();</span><br><span class="line">    value = sign ? -result : result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;value, Ts &amp;...remain)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(value);</span><br><span class="line">    <span class="built_in">read</span>(remain...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">read</span>(a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, x; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">read</span>(x), a[i] -= x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x = a[i] - a[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="number">0</span>)</span><br><span class="line">            p += x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            q -= x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, p &gt; q ? p : q);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a target="_blank" rel="noopener" href="https://acm.sjtu.edu.cn/OnlineJudge/problem?problem_id=1080">ACMOJ - 1080 - 后缀表达式</a></p>
+<p>计算给定后缀表达式的值，其中<code>@</code>为表达式终止符，<code>.</code>为操作数结束标识</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>按照后缀表达式的规则计算即可，推荐使用字符串进行处理，注意操作数的完整提取</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> NMAX = <span class="number">10005</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> suffix[NMAX];</span><br><span class="line"><span class="type">int</span> stack[NMAX], top = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, suffix);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">0</span>; suffix[p] != <span class="string">&#x27;@&#x27;</span>; p++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isdigit</span>(suffix[p]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> oprand = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (suffix[p] != <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">                oprand = oprand * <span class="number">10</span> + suffix[p] - <span class="string">&#x27;0&#x27;</span>, p++;</span><br><span class="line">            stack[++top] = oprand;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (suffix[p] == <span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">            top--, stack[top] = stack[top] + stack[top + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (suffix[p] == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            top--, stack[top] = stack[top] - stack[top + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (suffix[p] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">            top--, stack[top] = stack[top] * stack[top + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (suffix[p] == <span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            top--, stack[top] = stack[top] / stack[top + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, stack[top]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -251,12 +228,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/08/30/acmoj-1572/" rel="prev" title="【题解】ACMOJ 1572 二分图">
-      <i class="fa fa-chevron-left"></i> 【题解】ACMOJ 1572 二分图
+    <a href="/2022/10/14/acmoj-14151/" rel="prev" title="【题解】ACMOJ 14151 出栈序列">
+      <i class="fa fa-chevron-left"></i> 【题解】ACMOJ 14151 出栈序列
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/09/26/acmoj-1033/" rel="next" title="【题解】ACMOJ 1033 求行列式">
-      【题解】ACMOJ 1033 求行列式 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/10/14/acmoj-14373/" rel="next" title="【题解】ACMOJ 14373 循环队列">
+      【题解】ACMOJ 14373 循环队列 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -316,7 +293,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82"><span class="nav-number">3.</span> <span class="nav-text">一些细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
